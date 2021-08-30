@@ -38,7 +38,7 @@ func TestRecoveryFromKeyBaseNoError(t *testing.T) {
 	assert.NoError(t, err)
 	sigs, err := keyManager.GetPrivKey().Sign(planText)
 	assert.NoError(t, err)
-	valid := keyManager.GetPrivKey().PubKey().VerifyBytes(planText, sigs)
+	valid := keyManager.GetPrivKey().PubKey().VerifySignature(planText, sigs)
 	assert.True(t, valid)
 }
 
@@ -49,7 +49,7 @@ func TestRecoveryPrivateKeyNoError(t *testing.T) {
 	assert.NoError(t, err)
 	sigs, err := keyManager.GetPrivKey().Sign(planText)
 	assert.NoError(t, err)
-	valid := keyManager.GetPrivKey().PubKey().VerifyBytes(planText, sigs)
+	valid := keyManager.GetPrivKey().PubKey().VerifySignature(planText, sigs)
 	assert.True(t, valid)
 }
 
